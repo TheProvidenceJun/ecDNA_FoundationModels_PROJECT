@@ -1,6 +1,6 @@
 <!--
-last-updated: 2026-06-03
-session-id: 2026-06-03-cold-start
+last-updated: 2026-06-21
+session-id: 2026-06-21-agents-md
 author-agent: cowork
 -->
 
@@ -13,9 +13,10 @@ author-agent: cowork
 
 ### 목표
 - [x] docs/ 골격 생성
-- [ ] spec / report 템플릿 합의 (← 오늘 진행 중)
+- [x] spec / report 템플릿 합의 (2026-06-03 확정)
+- [x] AGENTS.md (codex 부팅 진입점) 작성 (2026-06-21 확정)
 - [ ] constitution / plan 실내용 채우기 (다음 세션)
-- [ ] AGENTS.md (codex 부팅 진입점) 작성 여부 결정
+- [ ] Phase A 목표·완료조건 정의 (knowledge/ 입력 후)
 
 ### 완료조건 (검증 가능하게)
 - `docs/tasks/specs/_TEMPLATE.md` 와 `docs/tasks/reports/_TEMPLATE.md` 가 존재하고 사람이 합의함.
