@@ -185,6 +185,8 @@
   },
   "active": "39a498dc0d5b9204",
   "lastOpenFiles": [
+    "docs/plan/roadmap.md",
+    "docs/plan/current_phase.md",
     "docs/knowledge/ecDNA_FM_guide.md",
     "CLAUDE.md",
     "docs/constitution/constraints.md",
@@ -193,8 +195,6 @@
     "docs/state/STATE.md",
     "docs/tasks/reports/_TEMPLATE.md",
     "docs/tasks/specs/_TEMPLATE.md",
-    "docs/plan/current_phase.md",
-    "docs/plan/roadmap.md",
     "AGENTS.md",
     "docs/log/decisions.md"
   ]

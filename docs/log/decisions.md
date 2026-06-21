@@ -29,3 +29,13 @@
 - **무엇**: "codex-GUI가 매 작업 시작 시 AGENTS.md를 자동 로드한다"는 가정을 AGENTS.md 안에 PREMISE(unverified)로 명시. 실제 검증(코드 발주로 확인 등)은 이번 세션에 하지 않음.
 - **왜**: 아직 codex-GUI 동작을 사람이 확인하지 못함. 문서 표시로 위험을 가시화하는 것으로 이번엔 충분하다는 사람 판단. 자동 로드 안 되면 사람이 발주 시 직접 제시하면 됨.
 - **후속**: 사람이 codex-GUI에서 자동 로드 여부 확인 후 이 결정 로그에 결과 append.
+
+## 2026-06-21 — Phase A.3(dataset 매핑)은 codex spec이 아니라 사람(+도구1) 작업
+- **무엇**: 가이드 Phase A의 핵심 deliverable인 A.3(dataset 매핑·target list 확정)을 codex 자동화 발주 대상에서 제외하고, 사람(+도구1)이 직접 수행하는 작업으로 둔다. roadmap.md·current_phase.md 양쪽에 일관 반영.
+- **왜**: (1) AmpliconRepository.org academic email 등록·계정 인증은 본질적으로 사람 몫. (2) 어느 cell line을 우선할지는 판단이 섞인 큐레이션이라 spec으로 좁히기 어렵고, 잘못 자동화하면 범위 이탈·오큐레이션 위험.
+- **대안**: A.3을 codex spec으로 발주 — 거부(계정 인증 불가 + 판단 자동화 부적합). 부분만 발주(예: CCLE 다운로드 스크립트) — 향후 필요 시 별도 검토 여지는 남김.
+
+## 2026-06-21 — Phase 0 완료조건에 harness smoke test 추가
+- **무엇**: Phase 0 졸업 조건에 "시험용 spec 1건을 codex에 발주 → AGENTS.md 부팅·쓰기경계·report 의무 준수를 report·sessions.md 흔적으로 확인"을 추가. 이 smoke test가 AGENTS.md의 미검증 전제(codex가 AGENTS.md를 자동 로드하는가)를 실제로 검증하는 단계다.
+- **왜**: 기존 완료조건("템플릿 존재 + STATE 정확")은 협업 harness가 *실제로 작동하는지*를 검증하지 못한다. 문서만 맞고 codex가 규약을 안 따르면 관찰가능성·소유권이 무너진다. 연구 Phase A로 넘어가기 전 harness를 한 번 실증해야 안전하다.
+- **대안**: smoke test 없이 바로 Phase A 진입 — 거부(미검증 harness 위에 연구를 쌓는 위험). 단, smoke test의 **설계·발주는 별도 세션**에서 하기로 하여 이번 세션 범위는 넘기지 않음.
