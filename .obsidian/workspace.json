@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "docs/plan/current_phase.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CLAUDE"
+              "title": "current_phase"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "docs/plan/current_phase.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "CLAUDE 의 백링크"
+              "title": "current_phase 의 백링크"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "docs/plan/current_phase.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "CLAUDE 의 나가는 링크"
+              "title": "current_phase 의 나가는 링크"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "docs/plan/current_phase.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "CLAUDE 의 개요"
+              "title": "current_phase 의 개요"
             }
           }
         ]
@@ -185,15 +185,17 @@
   },
   "active": "39a498dc0d5b9204",
   "lastOpenFiles": [
-    "docs/tasks/specs/_TEMPLATE.md",
-    "AGENTS.md",
-    "docs/state/STATE.md",
+    "docs/knowledge/ecDNA_FM_guide.md",
     "CLAUDE.md",
-    "docs/tasks/reports/_TEMPLATE.md",
-    "docs/log/decisions.md",
-    "docs/constitution/roles.md",
-    "docs/constitution/conventions.md",
     "docs/constitution/constraints.md",
-    "docs/plan/current_phase.md"
+    "docs/constitution/conventions.md",
+    "docs/constitution/roles.md",
+    "docs/state/STATE.md",
+    "docs/tasks/reports/_TEMPLATE.md",
+    "docs/tasks/specs/_TEMPLATE.md",
+    "docs/plan/current_phase.md",
+    "docs/plan/roadmap.md",
+    "AGENTS.md",
+    "docs/log/decisions.md"
   ]
 }
