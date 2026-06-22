@@ -50,3 +50,13 @@
 - **왜**: 기존 커밋은 `docs : `(콜론 양옆 공백) 구형식이었는데, 이는 git에 익숙치 않아 생긴 형태. Conventional Commits 등 일반 git 관례와 맞추는 게 도구 호환·가독성에 낫다.
 - **정직성**: 과거 커밋 메시지는 위조·rewrite 하지 않는다. 통일은 향후 커밋에만 적용. conventions.md §4 각주에 과거가 구형식이었음을 명시.
 - **대안**: 구형식 `docs : ` 유지 — 거부(비표준). 과거 커밋 rewrite — 거부(히스토리 위조).
+
+## 2026-06-22 — constraints.md 확정 + hard 전환은 smoke test 이후로 보류
+- **무엇**: constraints.md를 집행 장부로 확정. 강제 메커니즘 8행을 환경 점검값(적용됨 1 / 가능하나 미설정 1 / 미확인 2 / soft 4)으로 정직하게 기록. hard 후보 우선순위(1.codex docs 수정금지 2.git push 사람전용 3.report 의무)와 수단 메뉴를 적되 **지금 hard 전환은 하지 않음**.
+- **왜**: codex를 아직 한 번도 안 돌려봤다. 실제로 뚫리는 규칙을 smoke test에서 본 뒤 거기부터 hard화해야 낭비가 없다. soft를 hard인 척 적는 것이 가장 위험한 rot라, 상태 용어(soft/가능하나 미설정/적용됨/미확인)를 정의해 능력과 약속을 구별.
+- **대안**: 지금 전면 hard화 — 거부(미검증 상태에서 비용만, 정작 안 뚫리는 곳 막을 위험). 전부 soft로 뭉뚱그림 — 거부(적용됨/미확인을 soft로 왜곡 = 거짓 안심).
+
+## 2026-06-22 — AGENTS.md §7 ↔ constraints.md 불일치 3건 발견, 갱신은 다음 라운드
+- **무엇**: 이번 환경 점검으로 AGENTS.md §7 강제상태 표가 constraints.md와 불일치함을 발견. 3건: (1) §7 "쓰기 경계 = soft"인데 실제 codex docs 수정금지 집행은 **미확인**(soft 아님, 미확인≠soft) — 과장. (2) git commit/push 행에 push측 branch protection "가능하나 미설정" 누락. (3) 실제 적용 중인 `.gitignore data/`(적용됨) 누락.
+- **왜 지금 안 고치나**: **한 세션에 두 문서를 동시에 수정하면 어느 쪽이 기준인지 흐려진다.** 이번 세션의 기준 문서는 constraints.md다. AGENTS.md는 다음 라운드에서 constraints를 기준으로 갱신한다.
+- **언제**: 다음 라운드(권장: smoke test 설계 세션과 함께 또는 그 직전). STATE.md 열린 항목에 등록.

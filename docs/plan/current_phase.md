@@ -1,6 +1,6 @@
 <!--
-last-updated: 2026-06-21
-session-id: 2026-06-21-plan-fill
+last-updated: 2026-06-22
+session-id: 2026-06-22-constraints
 author-agent: cowork
 -->
 
@@ -18,12 +18,13 @@ author-agent: cowork
 - 2026-06-21 — AGENTS.md 작성·합의·커밋 (`a9817a4`).
 - 2026-06-21 — 도구1이 `knowledge/ecDNA_FM_guide.md` 투입 (`4bb28f7`).
 - 2026-06-21 — plan(roadmap/current_phase) 실내용 작성·사람 합의 완료.
+- 2026-06-22 — constitution 3종(roles·conventions·constraints) 실내용 작성·합의 완료.
 
 ### Phase 0 완료조건 (졸업 판정의 단일 진실 — 체크박스는 여기에만)
 - [x] docs 골격 + spec/report 템플릿 합의·존재.
 - [x] AGENTS.md 작성·합의·커밋.
 - [x] plan(roadmap/current_phase) 실내용 합의 (2026-06-21).
-- [ ] constitution 실내용 합의 (plan 이후 다음 단계).
+- [x] constitution 실내용 합의 — roles·conventions·constraints 3종 완료 (2026-06-22).
 - [ ] **harness smoke test 통과**: 시험용 spec 1건을 codex에 발주하여, codex가
       AGENTS.md 부팅·쓰기경계·report 의무를 실제로 따르는지 `tasks/reports/`의 report와
       `log/sessions.md` 흔적으로 확인한다. 이는 AGENTS.md에 박힌 **미검증 전제
@@ -36,7 +37,7 @@ author-agent: cowork
 
 ### Phase 0 → Phase A 전환조건
 위 완료조건 다섯 항목이 **전부 [x]** 가 되면 Phase 0 졸업, Phase A로 전환한다.
-남은 관문: **constitution 실내용 합의 → harness smoke test 통과** (이 순서로 의존한다).
+**남은 관문은 'harness smoke test 통과' 하나뿐이다** (constitution까지 완료됨).
 
 ---
 
