@@ -34,16 +34,16 @@ author-agent: cowork
 
 ## 강제 메커니즘 표 (2026-06-22 환경 점검 기준)
 
-| 규칙 (무엇을 금지) | 강제 메커니즘 (어디서) | 현재 상태 |
-|---|---|---|
-| git commit/push 사람 전용 | pre-commit hook | **soft** — hook 없음 확인됨(`.git/hooks/`에 `pre-commit.sample`만 존재) |
-| codex가 main에 직접 push 금지 | GitHub branch protection | **가능하나 미설정** — 원격 존재(`origin`), 보호 규칙 미구성 확인됨 |
-| `data/` git 비추적 | `.gitignore` | **적용됨** — `.gitignore`에 `data/` 항목 확인됨 |
-| codex의 constitution/plan/state/specs/decisions 수정 금지 | read-only 마운트 / sandbox | **미확인** — smoke test에서 점검 |
-| codex sandbox 경계(지정 폴더 외 접근 금지) | codex-GUI 설정 | **미확인** — codex 실제 구동 시 점검 |
-| cowork의 코드/데이터 직접수정 금지 | (없음) | **soft** — 자기규율 |
-| codex의 report 의무(report 없는 변경 무효) | cowork 사후검증 | **soft** — 검증 단계에서만 |
-| 위험작업(영구삭제·권한변경·외부공유) 사람 승인 없이 금지 | (없음) | **soft** — 자기규율 |
+| 규칙 (무엇을 금지)                                          | 강제 메커니즘 (어디서)            | 현재 상태                                                          |
+| ---------------------------------------------------- | ------------------------ | -------------------------------------------------------------- |
+| git commit/push 사람 전용                                | pre-commit hook          | **soft** — hook 없음 확인됨(`.git/hooks/`에 `pre-commit.sample`만 존재) |
+| codex가 main에 직접 push 금지                              | GitHub branch protection | **가능하나 미설정** — 원격 존재(`origin`), 보호 규칙 미구성 확인됨                  |
+| `data/` git 비추적                                      | `.gitignore`             | **적용됨** — `.gitignore`에 `data/` 항목 확인됨                         |
+| codex의 constitution/plan/state/specs/decisions 수정 금지 | read-only 마운트 / sandbox  | **미확인** — smoke test에서 점검                                      |
+| codex sandbox 경계(지정 폴더 외 접근 금지)                      | codex-GUI 설정             | **미확인** — codex 실제 구동 시 점검                                     |
+| cowork의 코드/데이터 직접수정 금지                               | (없음)                     | **soft** — 자기규율                                                |
+| codex의 report 의무(report 없는 변경 무효)                    | cowork 사후검증              | **soft** — 검증 단계에서만                                            |
+| 위험작업(영구삭제·권한변경·외부공유) 사람 승인 없이 금지                     | (없음)                     | **soft** — 자기규율                                                |
 
 > 요약: **적용됨 1개**(.gitignore data/), **가능하나 미설정 1개**(branch protection),
 > **미확인 2개**(codex 마운트·sandbox), **soft 4개**(자기규율·사후검증). 대부분의 경계는

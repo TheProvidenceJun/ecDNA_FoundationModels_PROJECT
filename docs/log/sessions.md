@@ -7,3 +7,4 @@
 - 2026-06-21 / 2026-06-21-plan-fill / cowork / plan 두 문서(roadmap·current_phase) 실내용 작성·합의, A.3=사람작업·smoke test 완료조건 결정 기록
 - 2026-06-21 / 2026-06-21-constitution-roles-conventions / cowork / constitution roles.md·conventions.md 실내용 작성·합의(constraints.md 제외), 산출물위치·커밋표준형 결정 기록
 - 2026-06-22 / 2026-06-22-constraints / cowork / constraints.md 작성·합의(constitution 완성), 강제메커니즘 8행 정직 기록, AGENTS §7 불일치 3건 열린항목 등록
+- 2026-06-22 / 2026-06-22-spec-001-smoke-test / cowork / SPEC-001-smoke-test 작성·합의(harness 검증용 첫 spec), 사람용 SMOKE_TEST_OBSERVE 메모 작성
