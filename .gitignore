@@ -1,0 +1,21 @@
+# 데이터 (conventions: git 비추적, 대용량)
+data/
+
+# macOS
+.DS_Store
+
+# Obsidian 개인 설정
+.obsidian/
+
+# Jupyter 자동저장 (노트북 .ipynb 자체는 추적함)
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# conda/venv 환경 폴더 (프로젝트 안에 만들 경우)
+.venv/
+env/
+envs/
