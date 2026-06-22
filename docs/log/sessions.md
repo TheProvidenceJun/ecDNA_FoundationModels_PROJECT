@@ -9,3 +9,4 @@
 - 2026-06-22 / 2026-06-22-constraints / cowork / constraints.md 작성·합의(constitution 완성), 강제메커니즘 8행 정직 기록, AGENTS §7 불일치 3건 열린항목 등록
 - 2026-06-22 / 2026-06-22-spec-001-smoke-test / cowork / SPEC-001-smoke-test 작성·합의(harness 검증용 첫 spec), 사람용 SMOKE_TEST_OBSERVE 메모 작성
 - 2026-06-22 / 2026-06-22-smoke-test-codex / author=codex / SPEC-001 smoke test 스크립트·결과·report 작성
+- 2026-06-22 / 2026-06-22-verify-graduate / cowork / REPORT-001 대조검증 합격→Phase 0 졸업·Phase A 전환, constraints·AGENTS §7 smoke test 반영 동기화

@@ -60,3 +60,22 @@
 - **무엇**: 이번 환경 점검으로 AGENTS.md §7 강제상태 표가 constraints.md와 불일치함을 발견. 3건: (1) §7 "쓰기 경계 = soft"인데 실제 codex docs 수정금지 집행은 **미확인**(soft 아님, 미확인≠soft) — 과장. (2) git commit/push 행에 push측 branch protection "가능하나 미설정" 누락. (3) 실제 적용 중인 `.gitignore data/`(적용됨) 누락.
 - **왜 지금 안 고치나**: **한 세션에 두 문서를 동시에 수정하면 어느 쪽이 기준인지 흐려진다.** 이번 세션의 기준 문서는 constraints.md다. AGENTS.md는 다음 라운드에서 constraints를 기준으로 갱신한다.
 - **언제**: 다음 라운드(권장: smoke test 설계 세션과 함께 또는 그 직전). STATE.md 열린 항목에 등록.
+
+## 2026-06-22 — SPEC-001 smoke test 합격 판정 (harness 작동 확인)
+- **무엇을 검증했나**: REPORT-001을 SPEC-001 §5 완료조건 7항목과 1:1 대조 + 사람 관찰 반영. harness 4가지(AGENTS 자동부팅 / 쓰기경계 / report 의무 / conventions)가 추적 흔적으로 확인되는지로 판정.
+- **합격 판정 + 근거**:
+  - 검증① **AGENTS 자동로드 = YES**. codex가 constraints/conventions/SPEC-001만 읽고 부팅 — AGENTS §2 "딱 셋만"이 실제 작동. **AGENTS.md의 '미검증 전제'(codex가 AGENTS.md를 자동 로드하는가)가 이로써 검증됨(1회).**
+  - 검증② **쓰기 경계 = YES**. codex 변경은 scripts/·outputs/·reports/·sessions.md 4곳뿐. constitution/plan/state/specs/decisions 0 변경.
+  - 검증③④ **report 의무·conventions = YES**. REPORT-001은 _TEMPLATE 형식, sessions.md codex 1줄 append, 파일명·위치·결과 1행 모두 규약대로.
+- **'M docs/tasks/SMOKE_TEST_OBSERVE.md'의 정체 (해명)**: 이 변경은 codex가 아니라 **사람(JUN)이 관찰 메모의 체크박스를 채우며 생긴 것**이다. codex는 그 파일을 수정·되돌리지 않고 §5-4를 `[ ]`로 두며 report에 정직하게 신고했다. 따라서 경계 위반이 아니라 **멈춤·정직성 규칙의 정상 동작**이며, codex의 "부분완료" 상태표기는 과대주장 회피의 모범 사례로 평가한다.
+- **대안**: §5-4를 형식상 미충족으로 보아 '불합격/재발주' — 거부. 미충족 원인이 codex 책임이 아니고 harness 4가지는 모두 충족되었으므로, 형식 실패로 합격을 뒤집는 것은 검증의 본래 목적(harness 작동 확인)에 어긋난다.
+
+## 2026-06-22 — Phase 0 졸업 + Phase A 전환
+- **무엇**: smoke test 합격으로 Phase 0(Scaffold) 완료조건 5개 전부 충족 → **Phase 0 졸업**. current_phase.md를 Phase A(Onboarding)로 전환. Phase A 완료조건 = A.1 reading / A.2 도구학습 / A.3 dataset target list 확정, 엄격한 게이트는 A.3.
+- **A.3 완료조건은 '가볍게 시작 → 진행하며 구체화'**: 1차 충족은 cell line 이름 목록(3–5 + 후보 5–10). list를 만들다 완료조건이 자라나면(예: 이름만으론 Phase B에서 못 쓴다 → GEO accession·ecDNA 근거 항목 추가) **그때마다 decisions.md에 한 줄** 남긴다. (지금 과하게 정의하지 않는다 — results-driven.)
+- **왜**: 미리 완료조건을 무겁게 박으면 추측이 된다. 학습/큐레이션 phase는 진행하며 무엇이 필요한지 드러난다. A.3=사람작업 결정은 유지(2026-06-21).
+
+## 2026-06-22 — constraints.md·AGENTS.md §7 강제상태 동기화 (smoke test 반영 + 불일치 3건 해소)
+- **무엇**: smoke test 결과를 두 문서에 정직하게 반영. (a) constraints: codex docs수정금지·sandbox경계 행을 '미확인' → 'soft(1회 확인)'로(자기규율 1회 작동, hard는 미적용). hard 전환 로드맵에 "soft가 1회 작동했으므로 당장 hard화 보류" 명시. (b) AGENTS §7: 밀려있던 불일치 3건 해소 — 쓰기경계 soft→'soft(1회확인)/hard미적용', push/branch-protection 행 추가, .gitignore data/(적용됨) 반영. 두 표 일관 동기화.
+- **왜**: 점검으로 알아낸 것을 표에 반영하지 않으면 rot. 단 "1회 관찰 ≠ 영구 보장"·"여전히 hard 없음"을 명시해 과장 금지. 한 세션에 두 문서를 섞지 말라는 원칙대로 [3]→[4] 순차 진행.
+- **대안**: 'soft 규율 1회 작동'을 '검증됨/안전'으로 적기 — 거부(과장 = 거짓 안심 rot). 지금 hard화 강행 — 거부(1회 작동했고 뚫린 적 없어 비용 낭비).

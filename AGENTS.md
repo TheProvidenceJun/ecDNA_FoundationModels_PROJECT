@@ -1,6 +1,6 @@
 <!--
-last-updated: 2026-06-21
-session-id: 2026-06-21-agents-md
+last-updated: 2026-06-22
+session-id: 2026-06-22-agents-premise-verified
 author-agent: cowork
 owner: cowork (쓰기) / codex (읽기 전용)
 -->
@@ -11,11 +11,14 @@ owner: cowork (쓰기) / codex (읽기 전용)
 > 목적은 "많이 알려주기"가 아니라 **"좁게 가두기"**다. 너는 전모를 보는 팀장이 아니라,
 > 받은 spec 하나만 구현하고 추적 가능하게 보고하고 끝나는 구현자다.
 
-> ⚠️ **미검증 전제 (PREMISE, unverified)**: 이 문서는 "codex-GUI가 매 작업 시작 시
-> 이 `AGENTS.md`를 자동으로 읽어 들인다"를 가정한다. **이 자동 로드 가정은 아직
-> 실제 codex-GUI 환경에서 검증되지 않았다.** 만약 자동 로드되지 않는다면, 사람이
-> 작업 발주 시 이 문서를 codex에게 직접 제시해야 한다. 이 전제가 확인/반증되면
-> `docs/log/decisions.md`에 기록한다.
+> ✅ **전제 (PREMISE, VERIFIED 2026-06-22)**: 이 문서는 "codex-GUI가 매 작업 시작 시
+> 이 `AGENTS.md`를 자동으로 읽어 들인다"를 가정한다. **이 자동 로드 가정은 SPEC-001
+> smoke test에서 검증됐다** — codex가 AGENTS 지침대로 `constraints.md`/`conventions.md`/
+> 해당 spec만 읽고 부팅한 것이 관찰됨. (근거: `docs/tasks/specs/SPEC-001-smoke-test.md`,
+> `docs/log/decisions.md` 2026-06-22.)
+> ⚠️ **단, 이는 1회 관찰이다.** codex-GUI 설정·세션에 따라 자동 로드가 매번 보장되지는
+> 않을 수 있다. 자동 로드가 안 되는 정황(부팅 흔적 없음·경계 무시 등)이 보이면 사람이
+> 발주 시 이 `AGENTS.md`를 codex에게 직접 제시한다. 추가 정황은 `docs/log/decisions.md`에 기록.
 
 ---
 
@@ -109,18 +112,21 @@ report를 남기고 끝낸다.
 
 ## 7. 정직성 표시 (경계의 강제 상태)
 
-위 경계들은 **지금 대부분 '문서 선언(soft)'이며, 환경 강제가 아직 없다.**
-각 경계의 현재 강제 상태:
+위 경계들은 **지금 대부분 '문서 선언(soft)'이며, 환경 강제는 거의 없다**(`.gitignore`로
+`data/` 비추적 하나만 적용됨). 각 경계의 현재 강제 상태:
 
 | 경계 | 강제 방식 | 상태 |
 |---|---|---|
-| 쓰기 경계 (§3) | read-only 마운트 / git branch 보호 / codex sandbox | ❌ 아직 없음 — **soft (문서 선언만)** |
-| git commit 사람 전용 (§3) | codex 환경에서 git 실행 차단 | ⚠️ **soft — 자기규율로만** |
-| report 의무 (§4) | (없음) cowork의 사후 검증으로만 포착 | ⚠️ **soft — 검증 단계에서만 강제** |
-| 멈춤 규칙 (§5) | (없음) | ⚠️ **soft — codex 자기규율** |
+| 쓰기 경계 — codex docs 수정 금지 (§3) | read-only 마운트 / codex sandbox | **soft (1회 확인)** — 2026-06-22 smoke test에서 자기규율 준수 1회 관찰. 환경 강제(hard)는 미적용. |
+| codex의 main 직접 push 금지 (§3) | GitHub branch protection | **가능하나 미설정** — 원격 존재, 보호 규칙 미구성 |
+| git commit/push 사람 전용 (§3) | pre-commit hook | **soft** — hook 없음 확인됨(`.sample`만 존재) |
+| `data/` git 비추적 (§3 코드/데이터) | `.gitignore` | **적용됨** — `.gitignore`에 `data/` 확인됨 |
+| report 의무 (§4) | (없음) cowork의 사후 검증으로만 포착 | **soft — 검증 단계에서만** |
+| 멈춤 규칙 (§5) | (없음) | **soft — codex 자기규율** (smoke test에서 작동 관찰) |
 
-> 이 표는 `docs/constitution/constraints.md`의 강제 메커니즘 표와 **일관**되어야 한다.
-> 둘이 어긋나면 멈추고 cowork에게 알린다. 강제 메커니즘이 도입되면 양쪽을 함께 갱신한다.
+> 상태 용어 정의와 hard 전환 로드맵은 `docs/constitution/constraints.md`가 단일 진실이다.
+> 이 표는 그 표와 **일관**되어야 한다(2026-06-22 동기화 완료). 둘이 어긋나면 멈추고
+> cowork에게 알린다. 강제 메커니즘이 도입되면 양쪽을 함께 갱신한다.
 
 ---
 

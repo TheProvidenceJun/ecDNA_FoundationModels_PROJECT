@@ -1,6 +1,6 @@
 <!--
 last-updated: 2026-06-22
-session-id: 2026-06-22-constraints
+session-id: 2026-06-22-verify-graduate
 author-agent: cowork
 -->
 
@@ -39,15 +39,16 @@ author-agent: cowork
 | git commit/push 사람 전용                                | pre-commit hook          | **soft** — hook 없음 확인됨(`.git/hooks/`에 `pre-commit.sample`만 존재) |
 | codex가 main에 직접 push 금지                              | GitHub branch protection | **가능하나 미설정** — 원격 존재(`origin`), 보호 규칙 미구성 확인됨                  |
 | `data/` git 비추적                                      | `.gitignore`             | **적용됨** — `.gitignore`에 `data/` 항목 확인됨                         |
-| codex의 constitution/plan/state/specs/decisions 수정 금지 | read-only 마운트 / sandbox  | **미확인** — smoke test에서 점검                                      |
-| codex sandbox 경계(지정 폴더 외 접근 금지)                      | codex-GUI 설정             | **미확인** — codex 실제 구동 시 점검                                     |
+| codex의 constitution/plan/state/specs/decisions 수정 금지 | read-only 마운트 / sandbox  | **soft (1회 확인)** — 2026-06-22 SPEC-001 smoke test에서 codex가 자기규율만으로 경계 준수함을 1회 관찰. ⚠️ "1회 관찰"이지 "영구 보장"이 아니며, 환경 강제(hard)는 여전히 미적용. |
+| codex sandbox 경계(지정 폴더 외 접근 금지)                      | codex-GUI 설정             | **soft (1회 확인)** — 같은 smoke test에서 codex가 지정 범위(scripts·outputs·reports·sessions)만 건드림. ⚠️ sandbox 환경 강제 자체는 여전히 미확인/미적용. |
 | cowork의 코드/데이터 직접수정 금지                               | (없음)                     | **soft** — 자기규율                                                |
 | codex의 report 의무(report 없는 변경 무효)                    | cowork 사후검증              | **soft** — 검증 단계에서만                                            |
 | 위험작업(영구삭제·권한변경·외부공유) 사람 승인 없이 금지                     | (없음)                     | **soft** — 자기규율                                                |
 
-> 요약: **적용됨 1개**(.gitignore data/), **가능하나 미설정 1개**(branch protection),
-> **미확인 2개**(codex 마운트·sandbox), **soft 4개**(자기규율·사후검증). 대부분의 경계는
-> 아직 환경이 아니라 규율이 지키고 있다.
+> 요약(2026-06-22 smoke test 후): **적용됨 1개**(.gitignore data/), **가능하나 미설정 1개**
+> (branch protection), **soft 6개** — 그중 2개(codex 마운트·sandbox)는 smoke test에서
+> 자기규율 작동을 1회 확인했고 나머지 4개는 자기규율·사후검증. **여전히 환경 강제(hard)는
+> .gitignore 하나뿐이며, 대부분의 경계는 규율이 지키고 있다.**
 
 ---
 
@@ -56,6 +57,11 @@ author-agent: cowork
 **지금은 hard 전환을 하지 않는다.** 이유: codex를 아직 한 번도 안 돌려봤다. codex의
 실제 행동(경계를 존중하나/무시하나)을 **smoke test에서 본 뒤**, 실제로 뚫리는 규칙부터
 hard로 막는다. (성급한 hard화는 켜는 비용만 들고 정작 안 뚫리는 곳을 막는 낭비일 수 있다.)
+
+> **2026-06-22 갱신**: SPEC-001 smoke test에서 **soft 규율이 1회 시험에서 작동**했다
+> (codex가 경계를 자기규율만으로 준수). 따라서 **당장의 hard화는 보류한다.** 단 이는
+> "1회 관찰"이며 영구 보장이 아니다 — 향후 codex가 경계를 뚫는 사례가 나오면 아래
+> 우선순위대로 hard화한다.
 
 ### hard 후보 우선순위 (사람 합의)
 1. **1순위 — codex의 constitution/plan/state 수정 금지.** 뚫리면 메모리·제약이 통째로 붕괴.
